@@ -94,7 +94,7 @@ public class GunConfig {
         return new GunConfig()
                 .cd(42).range(140f).spread(0.6f).boom(6.5f).fire(true).recoil(0.7f)
                 .trail(ParticleTypes.FLAME).muzzle(ParticleTypes.LARGE_SMOKE)
-                .sound(SoundEvents.ENTITY_GENERIC_EXPLODE, 1.8f, 0.9f);
+                .sound(SoundEvents.ENTITY_GENERIC_EXPLODE.value(), 1.8f, 0.9f);
     }
 
     /** Drop Launcher (grenade) — faster, smaller boom, spammier. */
@@ -102,7 +102,7 @@ public class GunConfig {
         return new GunConfig()
                 .cd(22).range(100f).spread(1.4f).boom(4.0f).recoil(0.3f)
                 .trail(ParticleTypes.FLAME).muzzle(ParticleTypes.SMOKE)
-                .sound(SoundEvents.ENTITY_GENERIC_EXPLODE, 1.4f, 1.3f);
+                .sound(SoundEvents.ENTITY_GENERIC_EXPLODE.value(), 1.4f, 1.3f);
     }
 
     /** Blast Shotgun — 9 pellets of pain up close, huge knockback. */
@@ -110,7 +110,7 @@ public class GunConfig {
         return new GunConfig()
                 .dmg(9f).cd(15).range(26f).spread(7.0f).pellets(9).kb(1.2f).recoil(0.25f)
                 .trail(ParticleTypes.CRIT).muzzle(ParticleTypes.FLAME)
-                .sound(SoundEvents.ENTITY_GENERIC_EXPLODE, 1.2f, 1.6f);
+                .sound(SoundEvents.ENTITY_GENERIC_EXPLODE.value(), 1.2f, 1.6f);
     }
 
     /** Tempo Minigun — spam-click for a wall of lead, suppresses targets. */
