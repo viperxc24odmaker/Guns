@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [" I ", "IDI", " I "],
+  "key": { "I": "minecraft:iron_ingot", "D": "minecraft:music_disc_cat" },
+  "result": { "id": "boombox:beat_pistol", "count": 1 }
+}

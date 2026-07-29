@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["GDC", " C ", "  C"],
+  "key": { "G": "minecraft:glass", "C": "minecraft:diamond", "D": "minecraft:music_disc_far" },
+  "result": { "id": "boombox:frequency_sniper", "count": 1 }
+}

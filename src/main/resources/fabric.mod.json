@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "boombox",
+  "version": "1.0.0",
+  "name": "MakeForge: Boombox Arsenal",
+  "description": "Turn music discs into guns and firework stars into ammo. 8 absurdly strong weapons, VulkanMod-safe.",
+  "authors": [
+    "Divine / MakeForge"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/boombox/textures/item/bass_bazooka.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.makeforge.boombox.BoomBox"
+    ],
+    "client": [
+      "com.makeforge.boombox.BoomBoxClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["GGI", " DI", "  I"],
+  "key": { "I": "minecraft:iron_ingot", "G": "minecraft:gunpowder", "D": "minecraft:music_disc_mall" },
+  "result": { "id": "boombox:blast_shotgun", "count": 1 }
+}

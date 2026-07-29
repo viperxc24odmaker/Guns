@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["NNN", "TDT", "NNN"],
+  "key": { "N": "minecraft:netherite_scrap", "T": "minecraft:tnt", "D": "minecraft:music_disc_pigstep" },
+  "result": { "id": "boombox:bass_bazooka", "count": 1 }
+}

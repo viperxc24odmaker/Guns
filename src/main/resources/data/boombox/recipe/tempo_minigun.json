@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["III", "RDR", "III"],
+  "key": { "I": "minecraft:iron_block", "R": "minecraft:redstone_block", "D": "minecraft:music_disc_stal" },
+  "result": { "id": "boombox:tempo_minigun", "count": 1 }
+}
