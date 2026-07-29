@@ -29,7 +29,7 @@ public class GunConfig {
     public ParticleEffect trail = ParticleTypes.CRIT;
     public ParticleEffect muzzle = ParticleTypes.FLAME;
 
-    public RegistryEntry<SoundEvent> sound = SoundEvents.ENTITY_FIREWORK_ROCKET_BLAST;
+    public SoundEvent sound = SoundEvents.ENTITY_FIREWORK_ROCKET_BLAST;
     public float volume = 1.4f;
     public float pitch = 1.0f;
 
@@ -52,7 +52,7 @@ public class GunConfig {
     public GunConfig auto()              { this.auto = true; return this; }
     public GunConfig trail(ParticleEffect p) { this.trail = p; return this; }
     public GunConfig muzzle(ParticleEffect p){ this.muzzle = p; return this; }
-    public GunConfig sound(RegistryEntry<SoundEvent> s, float vol, float pit) {
+    public GunConfig sound(SoundEvent s, float vol, float pit) {
         this.sound = s; this.volume = vol; this.pitch = pit; return this;
     }
     public GunConfig effect(RegistryEntry<StatusEffect> e, int dur, int amp) {

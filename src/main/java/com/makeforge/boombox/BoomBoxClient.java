@@ -4,7 +4,6 @@ import com.makeforge.boombox.item.GunItem;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -13,7 +12,7 @@ import net.minecraft.text.Text;
 public class BoomBoxClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        HudRenderCallback.EVENT.register((DrawContext ctx, Object tick) -> {
+        HudRenderCallback.EVENT.register((ctx, tick) -> {
             MinecraftClient mc = MinecraftClient.getInstance();
             ClientPlayerEntity player = mc.player;
             if (player == null || mc.options.hudHidden) return;

@@ -15,7 +15,6 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.UseAction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -71,11 +70,6 @@ public class GunItem extends Item {
     }
 
     @Override
-    public UseAction getUseAction(ItemStack stack) {
-        return UseAction.NONE;
-    }
-
-    @Override
     public void usageTick(World world, LivingEntity user, ItemStack stack, int remainingUseTicks) {
         if (!config.auto) return;
         if (!(user instanceof PlayerEntity player)) return;
@@ -119,7 +113,6 @@ public class GunItem extends Item {
         if (config.recoil > 0f) {
             Vec3d back = look.multiply(-config.recoil);
             player.addVelocity(back.x, config.recoil * 0.25, back.z);
-            player.velocityModified = true;
         }
     }
 
@@ -167,7 +160,6 @@ public class GunItem extends Item {
         if (config.knockback > 0f) {
             living.takeKnockback(config.knockback,
                     player.getX() - living.getX(), player.getZ() - living.getZ());
-            living.velocityModified = true;
         }
         if (config.fireSeconds > 0) {
             living.setOnFireFor(config.fireSeconds);
@@ -204,7 +196,7 @@ public class GunItem extends Item {
             Optional<Vec3d> opt = e.getBoundingBox().expand(0.25).raycast(start, end);
             if (opt.isPresent()) onBeam.add(e);
         }
-        onBeam.sort(Comparator.comparingDouble(e -> e.getPos().squaredDistanceTo(start)));
+        onBeam.sort(Comparator.comparingDouble(e -> e.squaredDistanceTo(start)));
         return onBeam;
     }
 
