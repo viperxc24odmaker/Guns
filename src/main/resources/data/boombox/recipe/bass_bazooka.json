@@ -1,6 +1,15 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": ["NNN", "TDT", "NNN"],
-  "key": { "N": "minecraft:netherite_scrap", "T": "minecraft:tnt", "D": "minecraft:music_disc_pigstep" },
-  "result": { "id": "boombox:bass_bazooka", "count": 1 }
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "minecraft:gunpowder"
+  ],
+  "result": {
+    "id": "boombox:bass_bazooka",
+    "count": 1
+  }
 }

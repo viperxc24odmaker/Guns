@@ -1,6 +1,14 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": ["III", "RDR", " I "],
-  "key": { "I": "minecraft:iron_ingot", "R": "minecraft:redstone", "D": "minecraft:music_disc_blocks" },
-  "result": { "id": "boombox:rhythm_rifle", "count": 1 }
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "minecraft:redstone"
+  ],
+  "result": {
+    "id": "boombox:rhythm_rifle",
+    "count": 1
+  }
 }

@@ -1,6 +1,16 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": ["ENE", "NDN", "ENE"],
-  "key": { "E": "minecraft:echo_shard", "N": "minecraft:netherite_ingot", "D": "minecraft:music_disc_5" },
-  "result": { "id": "boombox:sonic_railgun", "count": 1 }
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "minecraft:amethyst_shard",
+    "minecraft:redstone"
+  ],
+  "result": {
+    "id": "boombox:sonic_railgun",
+    "count": 1
+  }
 }
