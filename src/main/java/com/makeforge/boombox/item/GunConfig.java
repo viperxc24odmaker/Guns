@@ -13,6 +13,8 @@ import net.minecraft.sound.SoundEvents;
  * factory methods below read like a stat sheet.
  */
 public class GunConfig {
+    public enum AmmoTier { LIGHT, HEAVY, EXPLOSIVE }
+    public AmmoTier ammo = AmmoTier.LIGHT;
     public float damage = 6f;          // per-hit damage (hitscan guns)
     public int cooldown = 10;          // ticks between shots
     public float range = 48f;          // max reach in blocks
@@ -50,6 +52,7 @@ public class GunConfig {
     public GunConfig kb(float v)         { this.knockback = v; return this; }
     public GunConfig recoil(float v)     { this.recoil = v; return this; }
     public GunConfig auto()              { this.auto = true; return this; }
+    public GunConfig ammo(AmmoTier t)    { this.ammo = t; return this; }
     public GunConfig trail(ParticleEffect p) { this.trail = p; return this; }
     public GunConfig muzzle(ParticleEffect p){ this.muzzle = p; return this; }
     public GunConfig sound(SoundEvent s, float vol, float pit) {
@@ -83,7 +86,7 @@ public class GunConfig {
     /** Frequency Sniper — laser accurate, hits like a truck, marks + pierces. */
     public static GunConfig sniper() {
         return new GunConfig()
-                .dmg(48f).cd(32).range(220f).spread(0.0f).pierce(3).kb(1.6f).recoil(0.35f)
+                .dmg(48f).cd(32).range(220f).spread(0.0f).pierce(3).kb(1.6f).recoil(0.35f).ammo(AmmoTier.HEAVY)
                 .trail(ParticleTypes.END_ROD).muzzle(ParticleTypes.END_ROD)
                 .sound(SoundEvents.ITEM_MACE_SMASH_GROUND_HEAVY, 1.6f, 1.2f)
                 .effect(StatusEffects.GLOWING, 80, 0);
@@ -92,7 +95,7 @@ public class GunConfig {
     /** Bass Bazooka — big single explosive shell, leaves fire. */
     public static GunConfig bazooka() {
         return new GunConfig()
-                .cd(42).range(140f).spread(0.6f).boom(6.5f).fire(true).recoil(0.7f)
+                .cd(42).range(140f).spread(0.6f).boom(6.5f).fire(true).recoil(0.7f).ammo(AmmoTier.EXPLOSIVE)
                 .trail(ParticleTypes.FLAME).muzzle(ParticleTypes.LARGE_SMOKE)
                 .sound(SoundEvents.ENTITY_GENERIC_EXPLODE.value(), 1.8f, 0.9f);
     }
@@ -100,7 +103,7 @@ public class GunConfig {
     /** Drop Launcher (grenade) — faster, smaller boom, spammier. */
     public static GunConfig grenade() {
         return new GunConfig()
-                .cd(22).range(100f).spread(1.4f).boom(4.0f).recoil(0.3f)
+                .cd(22).range(100f).spread(1.4f).boom(4.0f).recoil(0.3f).ammo(AmmoTier.EXPLOSIVE)
                 .trail(ParticleTypes.FLAME).muzzle(ParticleTypes.SMOKE)
                 .sound(SoundEvents.ENTITY_GENERIC_EXPLODE.value(), 1.4f, 1.3f);
     }
@@ -108,7 +111,7 @@ public class GunConfig {
     /** Blast Shotgun — 9 pellets of pain up close, huge knockback. */
     public static GunConfig shotgun() {
         return new GunConfig()
-                .dmg(9f).cd(15).range(26f).spread(7.0f).pellets(9).kb(1.2f).recoil(0.25f)
+                .dmg(9f).cd(15).range(26f).spread(7.0f).pellets(9).kb(1.2f).recoil(0.25f).ammo(AmmoTier.HEAVY)
                 .trail(ParticleTypes.CRIT).muzzle(ParticleTypes.FLAME)
                 .sound(SoundEvents.ENTITY_GENERIC_EXPLODE.value(), 1.2f, 1.6f);
     }
@@ -125,7 +128,7 @@ public class GunConfig {
     /** Sonic Railgun — infinite pierce, monster damage, warden boom. */
     public static GunConfig railgun() {
         return new GunConfig()
-                .dmg(65f).cd(52).range(280f).spread(0.0f).pierce(9999).kb(2.0f).recoil(0.5f)
+                .dmg(65f).cd(52).range(280f).spread(0.0f).pierce(9999).kb(2.0f).recoil(0.5f).ammo(AmmoTier.HEAVY)
                 .trail(ParticleTypes.ELECTRIC_SPARK).muzzle(ParticleTypes.SONIC_BOOM)
                 .sound(SoundEvents.ENTITY_WARDEN_SONIC_BOOM, 2.0f, 1.0f)
                 .effect(StatusEffects.WEAKNESS, 100, 1);

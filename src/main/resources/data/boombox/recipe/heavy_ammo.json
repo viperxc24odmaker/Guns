@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:gunpowder",
+    "minecraft:iron_nugget"
+  ],
+  "result": {
+    "id": "boombox:heavy_ammo",
+    "count": 12
+  }
+}

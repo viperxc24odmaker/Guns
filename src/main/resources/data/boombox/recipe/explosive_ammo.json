@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:gunpowder",
+    "minecraft:coal"
+  ],
+  "result": {
+    "id": "boombox:explosive_ammo",
+    "count": 8
+  }
+}

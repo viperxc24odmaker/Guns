@@ -1,29 +1,44 @@
 package com.makeforge.boombox;
 
 import com.makeforge.boombox.item.GunItem;
+import com.mojang.logging.LogUtils;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.text.Text;
+import org.slf4j.Logger;
 
 public class BoomBoxClient implements ClientModInitializer {
+    private static final Logger LOGGER = LogUtils.getLogger();
+    private static boolean errorLogged = false;
+
     @Override
     public void onInitializeClient() {
-        HudRenderCallback.EVENT.register((ctx, tick) -> {
+        try {
+            HudRenderCallback.EVENT.register((ctx, tick) -> renderHud(ctx));
+        } catch (Throwable t) {
+            LOGGER.error("[boombox] failed to register HUD", t);
+        }
+    }
+
+    private static void renderHud(net.minecraft.client.gui.DrawContext ctx) {
+        try {
             MinecraftClient mc = MinecraftClient.getInstance();
             ClientPlayerEntity player = mc.player;
             if (player == null || mc.options.hudHidden) return;
 
             ItemStack held = player.getMainHandStack();
-            if (!(held.getItem() instanceof GunItem)) return;
+            if (!(held.getItem() instanceof GunItem gun)) return;
 
+            Item ammoItem = BoomBox.ammoItem(gun.config.ammo);
             int ammo = 0;
             for (int i = 0; i < player.getInventory().size(); i++) {
                 ItemStack s = player.getInventory().getStack(i);
-                if (s.isOf(Items.FIREWORK_STAR)) ammo += s.getCount();
+                if (s.isOf(ammoItem)) ammo += s.getCount();
             }
             boolean creative = player.getAbilities().creativeMode;
 
@@ -44,6 +59,11 @@ public class BoomBoxClient implements ClientModInitializer {
             ctx.fill(x - boxW, y - 3, x - boxW + 2, y + 21, 0xFF6EBEFF);
             ctx.drawTextWithShadow(mc.textRenderer, Text.literal(name), x - nameW, y, 0xFF6EBEFF);
             ctx.drawTextWithShadow(mc.textRenderer, Text.literal(ammoStr), x - ammoW, y + 11, color);
-        });
+        } catch (Throwable t) {
+            if (!errorLogged) {
+                errorLogged = true;
+                LOGGER.error("[boombox] HUD render error (disabling HUD draw)", t);
+            }
+        }
     }
 }

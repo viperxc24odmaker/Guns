@@ -1,5 +1,6 @@
 package com.makeforge.boombox.item;
 
+import com.makeforge.boombox.BoomBox;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -222,10 +223,11 @@ public class GunItem extends Item {
 
     private boolean consumeAmmo(PlayerEntity player) {
         if (player.getAbilities().creativeMode) return true;
+        Item ammo = BoomBox.ammoItem(config.ammo);
         PlayerInventory inv = player.getInventory();
         for (int i = 0; i < inv.size(); i++) {
             ItemStack s = inv.getStack(i);
-            if (s.isOf(Items.FIREWORK_STAR)) {
+            if (s.isOf(ammo)) {
                 s.decrement(1);
                 return true;
             }

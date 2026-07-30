@@ -6,5 +6,8 @@
   "item.boombox.drop_launcher": "Drop Launcher",
   "item.boombox.blast_shotgun": "Blast Shotgun",
   "item.boombox.tempo_minigun": "Tempo Minigun",
-  "item.boombox.sonic_railgun": "Sonic Railgun"
+  "item.boombox.sonic_railgun": "Sonic Railgun",
+  "item.boombox.light_ammo": "Light Ammo",
+  "item.boombox.heavy_ammo": "Heavy Ammo",
+  "item.boombox.explosive_ammo": "Explosive Shell"
 }
